@@ -1,0 +1,25 @@
+[package]
+name = "plaza_tui"
+version = "0.2.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+ratatui = "0.24"
+crossterm = "0.27"
+dirs = "5.0"
+base64 = "0.21"
+image = { version = "0.24", features = ["png", "jpeg"] }
+rand = "0.8"
+
+# Audio dependencies
+rodio = "0.17"
+symphonia = { version = "0.5", features = ["mp3", "vorbis", "flac", "wav"] }
+
+# Keep libc for any remaining signal handling (if needed)
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
